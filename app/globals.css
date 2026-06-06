@@ -41,16 +41,6 @@ body {
   transition: transform 0.1s, width 0.2s, height 0.2s, opacity 0.2s;
   mix-blend-mode: screen;
 }
-.cursor-ring {
-  position: fixed;
-  width: 36px; height: 36px;
-  border: 1px solid rgba(61, 250, 255, 0.5);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9998;
-  transform: translate(-50%, -50%);
-  transition: transform 0.15s ease-out, width 0.3s, height 0.3s;
-}
 
 /* Section labels */
 .label {
