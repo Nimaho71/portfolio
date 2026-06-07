@@ -24,7 +24,7 @@ const PROJECTS = [
       "Chess AI built from scratch — 1700 ELO on Chess.com. Iterative-deepening NegaMax with alpha-beta pruning, plus a genetic algorithm that evolves piece-position tables to optimise play. Full Pygame interface for human vs AI.",
     tags: ["Python", "AI", "Minimax", "Genetic Algorithms", "Pygame"],
     github: "https://github.com/Nimaho71/chess-engine",
-    live: null as string | null,
+    live: "https://chess-nilshogberg.vercel.app",
     accent: "#3dfaff",
   },
   {
