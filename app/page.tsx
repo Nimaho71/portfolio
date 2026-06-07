@@ -55,19 +55,34 @@ const CTF = [
   {
     platform: "Hack The Box",
     label: "HTB",
-    items: ["Network recon with Nmap", "Python exploit scripting", "Malware binary analysis"],
+    stat: "Lvl 7 · Bronze Tier · Rank #11635",
+    items: [
+      "Beginner rank — 20 points, 1 flag captured across machine categories",
+      "Active on Season 10 & 11 machines and Starting Point challenges",
+      "Python exploit scripting and binary analysis",
+    ],
     color: "#9fef00",
   },
   {
     platform: "TryHackMe",
     label: "THM",
-    items: ["PHP reverse shell upload bypass", "Extension filter evasion", "Web application exploitation"],
+    stat: "Top 30% · 15 rooms · 6 badges",
+    items: [
+      "Vulnversity — active recon, web app attacks, privilege escalation",
+      "Kenobi — Linux exploitation, Samba enumeration, proftpd CVE",
+      "Introductory Researching & Hacker Methodology",
+    ],
     color: "#ff4040",
   },
   {
     platform: "PicoCTF",
     label: "PICO",
-    items: ["BitLocker forensics (.dd imaging)", "Hash extraction & cracking", "Digital forensics"],
+    stat: "Forensics & hash analysis",
+    items: [
+      "BitLocker forensics — raw disk image (.dd) acquisition and analysis",
+      "Hash extraction and cracking with rockyou wordlist",
+      "Digital forensics and file carving",
+    ],
     color: "#3dfaff",
   },
 ];
@@ -290,7 +305,7 @@ function Hero() {
           <span style={{ color: "var(--accent)", WebkitTextStroke: "2px var(--accent)", WebkitTextFillColor: "transparent" }}>HOGBERG</span>
         </h1>
         <p style={{ marginTop: "2rem", fontFamily: "var(--font-body)", fontStyle: "italic", fontSize: "clamp(1rem,2vw,1.25rem)", color: "var(--muted)", maxWidth: "440px", lineHeight: 1.65, opacity: vis ? 1 : 0, transform: vis ? "none" : "translateY(20px)", transition: t(380) }}>
-          Security researcher and software engineer. Chalmers Computer Engineering, 2026.
+          Software engineer and cybersecurity learner. Chalmers Computer Engineering, 2026.
         </p>
         <div style={{ marginTop: "2.5rem", display: "flex", gap: "0.5rem", flexWrap: "wrap", opacity: vis ? 1 : 0, transform: vis ? "none" : "translateY(20px)", transition: t(520) }}>
           {["Cybersecurity", "Systems Programming", "AI / ML"].map(tag => <span key={tag} className="tag">{tag}</span>)}
@@ -318,20 +333,17 @@ function About() {
         <div>
           <div className="label" style={{ marginBottom: "1rem" }}>// About</div>
           <p style={{ fontFamily: "var(--font-body)", fontStyle: "italic", fontSize: "1.1rem", lineHeight: 1.75, color: "var(--text)", marginBottom: "1rem" }}>
-            Security researcher and software engineer from Gothenburg. I've done real SOC work, shipped AI-powered scrapers, built chess engines that beat 1700-rated players, and simulated fluid dynamics from scratch.
+            Software engineer and cybersecurity learner from Gothenburg. I've done real SOC work, shipped AI-powered scrapers, built chess engines that beat 1700-rated players, and simulated fluid dynamics from scratch.
           </p>
           <p style={{ fontFamily: "var(--font-body)", fontStyle: "italic", fontSize: "1rem", lineHeight: 1.7, color: "var(--muted)" }}>
             Starting Civilingenjör Datateknik at Chalmers in fall 2026. Looking for part-time roles in cybersecurity or SWE alongside my studies.
           </p>
         </div>
         <div>
-          <div className="label" style={{ marginBottom: "1rem" }}>// Stack</div>
+          <div className="label" style={{ marginBottom: "1rem" }}>// Stack &amp; Skills</div>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
             {SKILLS.map(s => (
-              <span key={s.label} className="skill-tag"
-                style={{ borderColor: s.category === "security" ? "rgba(255,61,107,0.35)" : s.category === "lang" ? "rgba(61,250,255,0.3)" : "rgba(61,250,255,0.16)" }}>
-                {s.label}
-              </span>
+              <span key={s.label} className="skill-tag">{s.label}</span>
             ))}
           </div>
         </div>
@@ -501,7 +513,8 @@ function CTFCard({ ctf: c, index: i }: { ctf: typeof CTF[0]; index: number }) {
       <div ref={glowRef} style={{ position: "absolute", inset: 0, zIndex: 0, pointerEvents: "none", opacity: hov ? 1 : 0, transition: "opacity 0.4s ease" }} />
       <div style={{ position: "relative", zIndex: 1, padding: "2rem" }}>
         <div style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: 36, height: 36, marginBottom: "1.2rem", background: c.color + "15", border: `1px solid ${c.color}40`, borderRadius: 4, fontFamily: "var(--font-mono)", fontSize: 10, fontWeight: 500, color: c.color, letterSpacing: "0.08em" }}>{c.label}</div>
-        <h4 style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "1.1rem", color: "var(--text)", marginBottom: "1rem" }}>{c.platform}</h4>
+        <h4 style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "1.1rem", color: "var(--text)", marginBottom: "0.3rem" }}>{c.platform}</h4>
+        <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: c.color, opacity: 0.65, letterSpacing: "0.08em", marginBottom: "1rem" }}>{c.stat}</div>
         <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "8px" }}>
           {c.items.map(item => <li key={item} style={{ fontFamily: "var(--font-mono)", fontSize: 11, color: "var(--muted)", lineHeight: 1.5, display: "flex", gap: "8px" }}><span style={{ color: c.color, flexShrink: 0 }}>›</span>{item}</li>)}
         </ul>

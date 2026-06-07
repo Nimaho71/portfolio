@@ -43,7 +43,8 @@
 - [x] Available-for-hire green badge on hero
 
 ## 🔲 Next Steps (in order)
-1. **Deploy nature-gallery to Vercel** — import github.com/Nimaho71/nature-gallery as separate project → get URL → update PROJECTS[2].live in page.tsx
+~~1. **Deploy nature-gallery to Vercel** — done: nature-nilshogberg.vercel.app~~
+1. **is-a.dev domain** — PR #40246 open, wait for merge, then add nilshogberg.is-a.dev in Vercel → Settings → Domains — import github.com/Nimaho71/nature-gallery as separate project → get URL → update PROJECTS[2].live in page.tsx
 2. **Chess web demo** — Pygbag compile: `pip install pygbag && cd ChessAI && python -m pygbag Chess/ChessMain.py` → static output → deploy to Vercel subdomain
 3. **Fluid sim web demo** — Pyodide version: strip @njit decorators, replace prange→range, wrap in minimal HTML → deploy to Vercel subdomain  
 4. **About section** — add photo/avatar when available
