@@ -35,7 +35,7 @@ const PROJECTS = [
       "Drag-scroll parallax image track with the Web Animations API. Mouse-driven momentum easing, scramble-text hero, and a custom cursor blob — all in vanilla JS.",
     tags: ["JavaScript", "CSS", "Web Animations API", "Vanilla JS"],
     github: "https://github.com/Nimaho71/nature-gallery",
-    live: null as string | null,
+    live: "https://nature-nilshogberg.vercel.app",
     accent: "#b8f400",
   },
 ];
