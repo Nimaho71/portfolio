@@ -10,6 +10,7 @@
 - github.com/Nimaho71/chess-engine — Python chess AI
 - github.com/Nimaho71/Python-Fluid-Simulation — SPH fluid sim (already existed)
 - github.com/Nimaho71/nature-gallery — parallax animation website
+- github.com/Nimaho71/chess-web — Pygbag static build (deploy this to Vercel, not chess-engine)
 
 ## Local Paths
 - Portfolio: ~/Documents/portfolio
@@ -45,7 +46,7 @@
 ## 🔲 Next Steps (in order)
 ~~1. **Deploy nature-gallery to Vercel** — done: nature-nilshogberg.vercel.app~~
 1. **is-a.dev domain** — PR #40246 open, wait for merge, then add nilshogberg.is-a.dev in Vercel → Settings → Domains — import github.com/Nimaho71/nature-gallery as separate project → get URL → update PROJECTS[2].live in page.tsx
-2. **Chess web demo** — Pygbag compile: `pip install pygbag && cd ChessAI && python -m pygbag Chess/ChessMain.py` → static output → deploy to Vercel subdomain
+2. **Chess web demo** ✅ — Built. Repo: github.com/Nimaho71/chess-web (static Pygbag/WASM output). Import this repo in Vercel dashboard → deploys as chess-nilshogberg.vercel.app. To update after AI changes: copy changed .py files to ~/Documents/chess-web/, run `/opt/homebrew/bin/python3 -m pygbag --build main.py` from that dir, then `cd build/web && git add . && git commit -m 'Rebuild' && git push`
 3. **Fluid sim web demo** — Pyodide version: strip @njit decorators, replace prange→range, wrap in minimal HTML → deploy to Vercel subdomain  
 4. **About section** — add photo/avatar when available
 5. **CTF writeups** — add proper markdown writeups for HTB/THM/PicoCTF challenges
