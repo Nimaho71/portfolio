@@ -45,7 +45,9 @@
 
 ## 🔲 Next Steps (in order)
 ~~1. **Deploy nature-gallery to Vercel** — done: nature-nilshogberg.vercel.app~~
-1. **is-a.dev domain** — PR #40246 open, wait for merge, then add nilshogberg.is-a.dev in Vercel → Settings → Domains — import github.com/Nimaho71/nature-gallery as separate project → get URL → update PROJECTS[2].live in page.tsx
+1. **is-a.dev domain** — PR #45266 awaiting merge. AFTER MERGE: Vercel → portfolio project
+   → Settings → Domains → add `nilshogberg.is-a.dev`. Without this step DNS resolves but
+   Vercel returns 404, since it doesn't know to serve your site for that hostname. — import github.com/Nimaho71/nature-gallery as separate project → get URL → update PROJECTS[2].live in page.tsx
 2. **Chess web demo** ✅ — Built. Repo: github.com/Nimaho71/chess-web (static Pygbag/WASM output). Import this repo in Vercel dashboard → deploys as chess-nilshogberg.vercel.app. To update after AI changes: copy changed .py files to ~/Documents/chess-web/, run `/opt/homebrew/bin/python3 -m pygbag --build main.py` from that dir, then `cd build/web && git add . && git commit -m 'Rebuild' && git push`
 3. **Fluid sim web demo** — Pyodide version: strip @njit decorators, replace prange→range, wrap in minimal HTML → deploy to Vercel subdomain  
 4. **About section** — add photo/avatar when available
