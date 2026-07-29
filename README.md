@@ -23,3 +23,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it.
 ## Making it your own
 
 Fork this repo and update the content in `app/page.tsx` (projects, skills, bio, links) and `app/layout.tsx` (metadata). It deploys out of the box on [Vercel](https://vercel.com/new) or any Next.js-compatible host.
+
+## License
+
+MIT — see [LICENSE](LICENSE).
