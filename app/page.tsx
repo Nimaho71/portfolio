@@ -35,7 +35,7 @@ const PROJECTS = [
       "1,800-line real-time 2D fluid sandbox. Parallel Numba-JIT kernels handle density, pressure, viscosity, and surface tension. Interactive obstacles, metaball renderer, and UI sliders for live parameter tuning.",
     tags: ["Python", "NumPy", "Numba", "Physics", "GPGPU"],
     github: "https://github.com/Nimaho71/Python-Fluid-Simulation",
-    live: null as string | null,
+    live: "https://fluid-nilshogberg.vercel.app",
     accent: "#ff3d6b",
   },
   {
