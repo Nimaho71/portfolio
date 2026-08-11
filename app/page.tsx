@@ -112,11 +112,23 @@ const SKILLS = [
 const EDUCATION = [
   {
     institution: "Chalmers University of Technology",
-    degree: "Civilingenjör Datateknik (Computer Engineering, MSc)",
+    degree: "Computer Engineering, MSc",
     period: "Starting Aug 2026",
     color: "#a855f7",
     items: [
       "Admitted to 5-year Master's programme in Computer Engineering",
+    ],
+  },
+  {
+    institution: "KTH Royal Institute of Technology",
+    degree: "IT Courses, 30 credits",
+    period: "2025 – 2026",
+    color: "#3dfaff",
+    items: [
+      "Computer Networks — data communication, transport, and system architecture",
+      "Computer Systems — computer architecture, programming languages, and operating systems",
+      "Computer Security — data security, cryptography, security models",
+      "Ethical Hacking — legal and ethical security testing",
     ],
   },
   {
@@ -141,7 +153,7 @@ const EXPERIENCE = [
   },
   {
     role: "Activity Leader",
-    company: "Göteborgs Kommun",
+    company: "City of Gothenburg",
     period: "July 2023",
     color: "#8b9ab0",
     items: ["Organised and led summer/sport activities for children aged 5–10"],
@@ -210,21 +222,6 @@ function Constellation() {
   return <canvas ref={ref} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none" }} />;
 }
 
-// ─── Cursor ───────────────────────────────────────────────────────────────────
-
-function Cursor() {
-  const ref = useRef<HTMLDivElement>(null);
-  const [isTouch, setIsTouch] = useState(false);
-  useEffect(() => {
-    setIsTouch(window.matchMedia("(hover: none)").matches);
-    const fn = (e: MouseEvent) => { if (ref.current) { ref.current.style.left = `${e.clientX}px`; ref.current.style.top = `${e.clientY}px`; } };
-    window.addEventListener("mousemove", fn);
-    return () => window.removeEventListener("mousemove", fn);
-  }, []);
-  if (isTouch) return null;
-  return <div ref={ref} className="cursor" />;
-}
-
 // ─── Nav ──────────────────────────────────────────────────────────────────────
 
 function Nav() {
@@ -252,7 +249,7 @@ function Nav() {
             </a>
           ))}
           <a href="#contact"
-            style={{ fontFamily: "var(--font-display)", fontSize: 11, fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", padding: "6px 16px", border: "1px solid var(--accent)", color: "var(--accent)", textDecoration: "none", borderRadius: 2, transition: "all 0.2s", cursor: "none" }}
+            style={{ fontFamily: "var(--font-display)", fontSize: 11, fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", padding: "6px 16px", border: "1px solid var(--accent)", color: "var(--accent)", textDecoration: "none", borderRadius: 2, transition: "all 0.2s" }}
             onMouseEnter={e => { e.currentTarget.style.background = "var(--accent)"; e.currentTarget.style.color = "var(--bg)"; }}
             onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "var(--accent)"; }}>
             Hire me
@@ -267,7 +264,7 @@ function Nav() {
 
 function Btn({ href, children, variant = "primary", target }: { href: string; children: React.ReactNode; variant?: "primary" | "ghost"; target?: string }) {
   const [hov, setHov] = useState(false);
-  const base: React.CSSProperties = { display: "inline-flex", alignItems: "center", padding: "10px 24px", fontFamily: "var(--font-display)", fontSize: 12, fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", textDecoration: "none", borderRadius: 2, cursor: "none", transition: "color 0.2s, background 0.2s, border-color 0.2s" };
+  const base: React.CSSProperties = { display: "inline-flex", alignItems: "center", padding: "10px 24px", fontFamily: "var(--font-display)", fontSize: 12, fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", textDecoration: "none", borderRadius: 2, transition: "color 0.2s, background 0.2s, border-color 0.2s" };
   const style: React.CSSProperties = variant === "primary"
     ? { ...base, color: hov ? "var(--accent)" : "var(--bg)", background: hov ? "transparent" : "var(--accent)", border: "1px solid var(--accent)" }
     : { ...base, color: hov ? "var(--accent)" : "var(--muted)", background: hov ? "rgba(61,250,255,0.06)" : "transparent", border: `1px solid ${hov ? "var(--accent)" : "var(--border)"}` };
@@ -336,7 +333,7 @@ function About() {
             Software engineer and cybersecurity learner from Gothenburg. I've done real SOC work, shipped AI-powered scrapers, built chess engines that beat 1700-rated players, and simulated fluid dynamics from scratch.
           </p>
           <p style={{ fontFamily: "var(--font-body)", fontStyle: "italic", fontSize: "1rem", lineHeight: 1.7, color: "var(--muted)" }}>
-            Starting Civilingenjör Datateknik at Chalmers in fall 2026. Looking for part-time roles in cybersecurity or SWE alongside my studies.
+            Starting a Computer Engineering MSc at Chalmers in fall 2026. Looking for part-time roles in cybersecurity or SWE alongside my studies.
           </p>
         </div>
         <div>
@@ -460,7 +457,7 @@ function ProjectCard({ project: p, index: i }: { project: typeof PROJECTS[0]; in
   }, [p.accent]);
   return (
     <div ref={ref} onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)} onMouseMove={onMM}
-      style={{ position: "relative", overflow: "hidden", background: hov ? "var(--surface)" : "var(--bg-2)", border: `1px solid ${hov ? p.accent + "40" : "var(--border)"}`, cursor: "none", opacity: vis ? 1 : 0, transform: vis ? "none" : "translateY(28px)", transition: `opacity 0.7s ease ${i * 100}ms, transform 0.7s ease ${i * 100}ms, background 0.3s, border-color 0.3s` }}>
+      style={{ position: "relative", overflow: "hidden", background: hov ? "var(--surface)" : "var(--bg-2)", border: `1px solid ${hov ? p.accent + "40" : "var(--border)"}`, opacity: vis ? 1 : 0, transform: vis ? "none" : "translateY(28px)", transition: `opacity 0.7s ease ${i * 100}ms, transform 0.7s ease ${i * 100}ms, background 0.3s, border-color 0.3s` }}>
       <div ref={glowRef} style={{ position: "absolute", inset: 0, zIndex: 0, pointerEvents: "none", opacity: hov ? 1 : 0, transition: "opacity 0.4s ease" }} />
       <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: hov ? p.accent : "transparent", transition: "background 0.3s", zIndex: 1 }} />
       <div style={{ position: "relative", zIndex: 1, padding: "2.5rem" }}>
@@ -509,7 +506,7 @@ function CTFCard({ ctf: c, index: i }: { ctf: typeof CTF[0]; index: number }) {
   }, [c.color]);
   return (
     <div ref={ref} onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)} onMouseMove={onMM}
-      style={{ position: "relative", overflow: "hidden", background: hov ? "var(--surface)" : "var(--bg-2)", border: `1px solid ${hov ? c.color + "40" : "var(--border)"}`, opacity: vis ? 1 : 0, transform: vis ? "none" : "translateY(28px)", transition: `opacity 0.7s ease ${i * 100}ms, transform 0.7s ease ${i * 100}ms, background 0.3s, border-color 0.3s`, cursor: "none" }}>
+      style={{ position: "relative", overflow: "hidden", background: hov ? "var(--surface)" : "var(--bg-2)", border: `1px solid ${hov ? c.color + "40" : "var(--border)"}`, opacity: vis ? 1 : 0, transform: vis ? "none" : "translateY(28px)", transition: `opacity 0.7s ease ${i * 100}ms, transform 0.7s ease ${i * 100}ms, background 0.3s, border-color 0.3s` }}>
       <div ref={glowRef} style={{ position: "absolute", inset: 0, zIndex: 0, pointerEvents: "none", opacity: hov ? 1 : 0, transition: "opacity 0.4s ease" }} />
       <div style={{ position: "relative", zIndex: 1, padding: "2rem" }}>
         <div style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: 36, height: 36, marginBottom: "1.2rem", background: c.color + "15", border: `1px solid ${c.color}40`, borderRadius: 4, fontFamily: "var(--font-mono)", fontSize: 10, fontWeight: 500, color: c.color, letterSpacing: "0.08em" }}>{c.label}</div>
@@ -570,7 +567,6 @@ export default function Page() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
   return (
     <>
-      <Cursor />
       <Nav />
       <main>
         <Hero />
